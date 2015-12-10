@@ -35,6 +35,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Paperclip for image upload
 gem 'paperclip', '~> 4.3'
 
+# Use Sitemap Generator to get the sitemap for the Overlords
+gem 'sitemap_generator'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
