@@ -11,7 +11,6 @@ class XmlrpcController < ApplicationController
       hash = { title: article.title, 
             description: article.text,
             link: 'http://otters.io/' + article.id.to_s,
-            post_status: if article.is_published then 'published' else 'draft' end,
             date_created: article.created_at.utc.iso8601,
             date_modified: article.updated_at.utc.iso8601,
             categories: '' }
@@ -22,8 +21,7 @@ class XmlrpcController < ApplicationController
   def newPost(blogid, username, password, content, publish) 
     if User.find_by(name: username).try(:authenticate, password) 
       article = Article.new( title: content["title"], 
-                             text: content["description"], 
-                             is_published: publish)
+                             text: content["description"])
       
       if article.save
         article.id
@@ -42,7 +40,6 @@ class XmlrpcController < ApplicationController
               title: article.title, 
               description: article.text,
               link: 'http://otters.io/' + article.id.to_s,
-              post_status: if article.is_published then 'published' else 'draft' end,
               date_created: article.created_at.utc.iso8601,
               date_modified: article.updated_at.utc.iso8601,
               categories: '' }
@@ -57,8 +54,7 @@ class XmlrpcController < ApplicationController
     if User.find_by(name: username).try(:authenticate, password) 
       Article.update(postid.to_i, 
               title: content["title"], 
-              text: content["description"],
-              is_published: publish)
+              text: content["description"])
       true
     end
   end
