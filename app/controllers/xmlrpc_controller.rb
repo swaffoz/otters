@@ -14,10 +14,7 @@ class XmlrpcController < ApplicationController
             post_status: if article.is_published then 'published' else 'draft' end,
             date_created: article.created_at.utc.iso8601,
             date_modified: article.updated_at.utc.iso8601,
-            categories: '',
-            mt_keywords: '',
-            mt_excerpt: '',
-            mt_text_more: '' }
+            categories: '' }
       hash
     end
   end
@@ -48,10 +45,7 @@ class XmlrpcController < ApplicationController
               post_status: if article.is_published then 'published' else 'draft' end,
               date_created: article.created_at.utc.iso8601,
               date_modified: article.updated_at.utc.iso8601,
-              categories: '',
-              mt_keywords: '',
-              mt_excerpt: '',
-              mt_text_more: '' }
+              categories: '' }
         arr.push hash
       end
       
@@ -68,8 +62,12 @@ class XmlrpcController < ApplicationController
       true
     end
   end
-  
-  def deletePost(appkey, postid, username, password, publish) 
+    
+  # Dave Winer's MetaWeblog does not define deletePost 
+  # We need to defer to the Blogger API it builds on
+  # So we use blogger.deletePost instead of metaWeblog.deletePost
+  # See: http://xmlrpc.scripting.com/metaWeblogApi.html
+  add_method 'blogger.deletePost' do |appkey, postid, username, password, publish|
     if User.find_by(name: username).try(:authenticate, password) 
       Article.delete(postid.to_i)
       true
@@ -90,9 +88,9 @@ class XmlrpcController < ApplicationController
                         attached_file: StringIO.new(data["bits"]))
       
       if image.save
-        return { file: image.attached_file_file_name, 
-                 url: image.attached_file.url, 
-                 type: image.attached_file_content_type }
+        { file: image.attached_file_file_name, 
+          url: image.attached_file.url, 
+          type: image.attached_file_content_type }
       end
     end
   end
