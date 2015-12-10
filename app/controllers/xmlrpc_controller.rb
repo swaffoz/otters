@@ -18,7 +18,7 @@ class XmlrpcController < ApplicationController
             mt_keywords: '',
             mt_excerpt: '',
             mt_text_more: '' }
-      return hash
+      hash
     end
   end
   
@@ -62,24 +62,24 @@ class XmlrpcController < ApplicationController
   def editPost(postid, username, password, content, publish)
     if User.find_by(name: username).try(:authenticate, password) 
       Article.update(postid.to_i, 
-        title: content["title"], 
-        text: content["description"],
-        is_published: publish)
-    return true
+              title: content["title"], 
+              text: content["description"],
+              is_published: publish)
+      true
     end
   end
   
   def deletePost(appkey, postid, username, password, publish) 
     if User.find_by(name: username).try(:authenticate, password) 
       Article.delete(postid.to_i)
-      return true
+      true
     end
   end
     
   def getCategories(blogid, username, password) 
     if User.find_by(name: username).try(:authenticate, password)
       # Categories are not available
-      return []
+      []
     end
   end
   
@@ -89,9 +89,9 @@ class XmlrpcController < ApplicationController
   
   def getUsersBlogs(appkey, username, password) 
     if authenticate_xml_rpc(username, password) 
-      return [{ blogid: "1", 
-                url: "http://otters.io", 
-                blogName: "Otters" }]
+      [{ blogid: "1", 
+         url: "http://otters.io", 
+         blogName: "Otters" }]
     end
   end
   
