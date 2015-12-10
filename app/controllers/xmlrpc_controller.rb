@@ -10,7 +10,7 @@ class XmlrpcController < ApplicationController
       article = Article.find(postid.to_i)
       hash = { title: article.title, 
             description: article.text,
-            link: 'http://otters.io/' + article.id,
+            link: 'http://otters.io/' + article.id.to_s,
             post_status: if article.is_published then 'published' else 'draft' end,
             date_created: article.created_at.utc.iso8601,
             date_modified: article.updated_at.utc.iso8601,
@@ -84,7 +84,17 @@ class XmlrpcController < ApplicationController
   end
   
   def newMediaObject(blogid, username, password, data) 
-    #
+    if User.find_by(name: username).try(:authenticate, password)
+      file_name = data["name"].to_s.split("/").last
+      image = Image.new(name: file_name, 
+                        attached_file: StringIO.new(data["bits"]))
+      
+      if image.save
+        return { file: image.attached_file_file_name, 
+                 url: image.attached_file.url, 
+                 type: image.attached_file_content_type }
+      end
+    end
   end
   
   def getUsersBlogs(appkey, username, password) 
