@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'xmlrpc/xe_index'
-
   resources :articles
   root :to => 'articles#index'
   
@@ -9,5 +7,11 @@ Rails.application.routes.draw do
   get "search" => 'search#show'
   
   # XML-RPC for MarsEdit
+  get 'xmlrpc/xe_index'
   post 'xmlrpc' => 'xmlrpc#xe_index'
+  
+  # RSS Feed
+  get 'feed' => 'articles#feed'
+  get 'feed' => redirect("/feed.rss")
+
 end
