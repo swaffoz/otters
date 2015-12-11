@@ -39,8 +39,11 @@ gem 'paperclip', '~> 4.3'
 # Use Sitemap Generator to get the sitemap for the Overlords
 gem 'sitemap_generator'
 
-# Add XMLRPC for MarsEdit
+# Use XMLRPC for MarsEdit
 gem "rails-xmlrpc"
+
+# Use Friendly ID for better URLs
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
