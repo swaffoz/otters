@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://otters.io"
+SitemapGenerator::Sitemap.default_host = ENV["app_url"]
 
 SitemapGenerator::Sitemap.create do
 

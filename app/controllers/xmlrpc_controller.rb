@@ -14,7 +14,7 @@ class XmlrpcController < ApplicationController
     article = Article.find(postid.to_i)
     hash = { title: article.title,
             description: article.text,
-            link: 'http://otters.io/' + article.id.to_s,
+            link: ENV["app_url"] + '/'  + article.id.to_s,
             date_created: article.created_at.utc.iso8601,
             date_modified: article.updated_at.utc.iso8601,
             categories: '' }
@@ -39,7 +39,7 @@ class XmlrpcController < ApplicationController
       hash = { postid: article.id.to_s,
         title: article.title,
         description: article.text,
-        link: 'http://otters.io/' + article.id.to_s,
+        link: ENV["app_url"] + '/' + article.id.to_s,
         date_created: article.created_at.utc.iso8601,
         date_modified: article.updated_at.utc.iso8601,
         categories: '' }
@@ -92,7 +92,7 @@ class XmlrpcController < ApplicationController
     return unless User.find_by(name: username).try(:authenticate, password)
 
     [{ blogid: '1',
-       url: 'http://otters.io',
+       url: ENV["app_url"],
        blogName: 'Otters' }]
   end
 end

@@ -18,3 +18,6 @@
 
 # Ignore uploaded images for now.
 /public/system
+
+# Ignore application configuration, because secrets!
+/config/application.yml
