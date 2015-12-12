@@ -1,0 +1,9 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'Rakefile'
+# This file commits many sins because it has to deal with metaWeblog
+    - 'app/controllers/xmlrpc_controller.rb'
