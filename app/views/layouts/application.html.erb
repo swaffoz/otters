@@ -7,8 +7,27 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <header>
+    <%= image_tag 'otter.png' %>
+    <div id='titleContainer'>
+      <h1>Otters.io</h1>
+      <small>An adorable little blog</small>
+    </div>
+  </header>
+  
+  <div id="wrap">
+    <div id="main">
+      <%= yield %>  
+    </div>
+  </div>
+  
+  <footer>
+    <div>
+      <%= link_to "RSS", "feed.rss" %>
+      <%= mail_to "zane@otters.io", "Email"%>
+      <a href="https://twitter.com/ZaneSwafford" target="_blank">Twitter</a>
+    </div>
+    <small>© Otters <%= Time.now.year %></small>
+  </footer>
 </body>
 </html>
