@@ -23,5 +23,26 @@ article
     position: relative
     left: 0.75em
 
+    img.small
+      @include span-columns(2 of 12)
+      
+    img.medium
+      @include span-columns(6 of 12)
+      
+    img.large
+      @include span-columns(8 of 12)
+      
+    img.extralarge
+      @include span-columns(12 of 12)
+      
+.right-align
+  text-align: right
+
+.center-align
+  text-align: center
+
+.left-align
+  text-align: left
+    
 article.active h1 a
   color: darken($secondary-accessory-color, 30%)

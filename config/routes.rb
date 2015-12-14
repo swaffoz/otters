@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   # Archived articles
   get 'archives' => 'articles#archives'
-
+  get 'archives/:page' => 'articles#archives'
   # Colophon
   get 'colophon' => 'articles#colophon'
     

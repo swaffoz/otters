@@ -24,6 +24,22 @@
   </article>
 <% end %>
 
+<article class="center-align">
+  <% if @page_number > 0 %>
+    <strong>
+      <%= link_to "← Newer Posts", "/archives/#{(@page_number - 1)}" %>
+    </strong>
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <% end %>
+  
+  <% if @page_number < @number_of_pages-1 %>
+    <strong>
+      <%= link_to "Older Posts →", "/archives/#{(@page_number + 1)}" %>
+    </strong>
+  <% end %>
+</article>
+
 <script>
   $('nav ul li#archives').addClass('active')
 </script>
