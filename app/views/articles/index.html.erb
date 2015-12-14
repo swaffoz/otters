@@ -9,10 +9,16 @@
 		
 		<% if article != @articles.last %>
 			<hr>
+		<% else %>
+			<br>
+			<br>
+			<br>
+			<br>
 		<% end %>
 	</article>
 <% end %>
 
-<!--
-<%= render 'search_box' %>
--->
+
+<script>
+	$('nav ul li#current').addClass('active')
+</script>

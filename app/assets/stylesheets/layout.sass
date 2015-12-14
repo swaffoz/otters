@@ -1,7 +1,6 @@
 $text-color: #414141
 $primary-accessory-color: #fff6bf//#fdf1aa
 $secondary-accessory-color: #e5edf8//#e4f2ff
-$tertiary-accessory-color: purple
 
 $logo-height: 60px
 
@@ -13,8 +12,7 @@ body
 a
   color: darken($text-color, 10%)
   text-decoration: none
-  border-bottom: solid 4px $primary-accessory-color
-  padding-bottom: 1px
+  border-bottom: solid 3px darken($primary-accessory-color, 10%)
   
   &:hover
     opacity: 0.8
@@ -75,6 +73,11 @@ nav
         border-bottom: none
         color: darken($primary-accessory-color, 60%)
 
+    li.active
+      background: $secondary-accessory-color
+      a
+        color: darken($secondary-accessory-color, 40%)
+    
 hr
   opacity: 0.1
   margin-top: 40px

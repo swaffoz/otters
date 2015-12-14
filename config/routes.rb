@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
   # Search articles
-  get "search" => 'search#show'
+  get 'search' => 'search#show'
   
+  # Archived articles
+  get 'archives' => 'articles#archives'
+
+  # Colophon
+  get 'colophon' => 'articles#colophon'
+    
   # XML-RPC for MarsEdit
   post 'xmlrpc' => 'xmlrpc#xe_index'
   
