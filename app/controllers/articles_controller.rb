@@ -8,10 +8,10 @@ class ArticlesController < ApplicationController
     page_size = 50
     @page_number = params[:page].nil? ? 0 : params[:page].to_i
     @number_of_pages = (1.0 * Article.all.count / page_size).ceil
-    
+
     lower_bound = page_size * @page_number.to_i
     upper_bound = page_size * (@page_number.to_i + 1)
-    
+
     if @page_number < @number_of_pages
       range = lower_bound...upper_bound
       @articles = Article.all.order('created_at DESC, updated_at DESC')[range]
@@ -19,8 +19,6 @@ class ArticlesController < ApplicationController
       @page_number = 1
       @articles = Article.all.order('created_at DESC, updated_at DESC')
     end
-    
-    
   end
 
   def colophon
