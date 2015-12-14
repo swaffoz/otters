@@ -1,9 +1,100 @@
+$text-color: #414141
+$primary-accessory-color: #fff6bf//#fdf1aa
+$secondary-accessory-color: #e5edf8//#e4f2ff
+$tertiary-accessory-color: purple
+
+$logo-height: 60px
+
 body
-    font-family: $lucida-grande
-    color: #384147
+  font-family: $primary-font-family
+  color: $text-color
+  background-color: #eeeeee
+
+a
+  color: darken($text-color, 10%)
+  text-decoration: none
+  border-bottom: solid 4px $primary-accessory-color
+  padding-bottom: 1px
+  
+  &:hover
+    opacity: 0.8
+    
+  &:active, &:visited
+    border-color: $secondary-accessory-color
 
 header
+  text-align: center
+  background-color: #eeeeee
+  border-bottom: 1px solid #d2d2d2
+  padding: 10px 0
+  
+  #logo_container
+    @include outer-container(800px)
+    
     img
-        width: 100px
-    #titleContainer
-        display: inline-block
+      @include span-columns(2 of 12)
+      @include omega()
+      padding: 0 10px 10px 0
+      margin-top: 36px
+      
+    #title_container
+      @include span-columns(8 of 12)
+      @include shift(1)
+      display: inline-block
+      text-align: left
+    
+      h1
+        font-weight: 800
+        font-size: modular-scale(5)
+    
+      small
+        font-style: italic
+        font-size: modular-scale(-1) 
+        padding-left: 6px
+
+#wrap
+  background: #fefefe
+
+nav
+  margin: 20px 0 80px 0
+  
+  ul
+    @include span-columns(10 of 12)
+    @include shift(1)
+  
+    li
+      display: inline
+      font-size: modular-scale(1)
+      font-weight: 400
+      background: $primary-accessory-color
+      border-radius: 8px
+      margin-right: 20px
+      padding: 6px
+
+      a 
+        border-bottom: none
+        color: darken($primary-accessory-color, 60%)
+
+hr
+  opacity: 0.1
+  margin-top: 40px
+   
+footer
+  font-size: modular-scale(0)
+  padding: 30px
+  text-align: center
+  background-color: #eeeeee
+  border-top: 1px solid #d2d2d2
+  
+  div
+    margin-bottom: 20px
+    
+  a
+    font-weight: 600
+    border-bottom: none
+    margin: 0 4px
+    
+  small
+    font-size: modular-scale(-1)
+    font-weight: 200
+    margin-bottom: 20px

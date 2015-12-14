@@ -1,3 +1,28 @@
-// Place all the styles related to the articles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+article
+  @include span-columns(10 of 12)
+  @include shift(1)
+  margin-top: 20px
+  margin-bottom: 20px
+  
+  h1
+    font-size: modular-scale(2)
+    a 
+      border-bottom: none
+  
+  h2
+    font-size: modular-scale(0)
+    font-style: italic
+    margin: 2px 0 12px 0
+    opacity: 0.4
+    
+  section.article-text-container
+    font-size: modular-scale(0)
+    font-family: $secondary-font-family
+    line-height: 165%
+    position: relative
+    left: 0.75em
+
+nav ul li#current
+  background: $secondary-accessory-color
+  a
+    color: darken($secondary-accessory-color, 40%)

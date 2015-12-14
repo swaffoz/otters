@@ -1,7 +1,7 @@
 ## This controller only handles showing articles and the feed.
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.all.order('created_at DESC, updated_at DESC')
   end
 
   def show

@@ -45,8 +45,9 @@ gem 'rails-xmlrpc'
 # Use Friendly ID for better URLs
 gem 'friendly_id', '~> 5.1.0'
 
-# Use Bourbon for SASS
+# Use Bourbon & Neat for SASS
 gem 'bourbon'
+gem 'neat'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
