@@ -52,7 +52,6 @@ gem 'neat'
 # Use Phusion Passenger for fun times
 gem 'passenger'
 
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console

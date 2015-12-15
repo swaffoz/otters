@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
 
     @articles = Article.all.order('created_at DESC, updated_at DESC')
     @number_of_pages = (1.0 * @articles.count / page_size).ceil.abs
-    @page_number = archive_page_number
+
+    @page_number = archive_page_number(@number_of_pages)
 
     start = page_size * @page_number
 
@@ -38,7 +39,9 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :text)
   end
 
-  def archive_page_number
-    params[:page].nil? ? 0 : params[:page].to_i
+  def archive_page_number(number_of_pages)
+    page_number = params[:page].nil? ? 1 : params[:page].to_i.abs
+    page_number = page_number > 0 ? page_number : 1
+    [number_of_pages, page_number].min
   end
 end
