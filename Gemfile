@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 # Yes, I think this app will need a thing or two from this gem.
 gem 'rails', '4.2.5'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use mysql as the database for Active Record
+gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -48,6 +48,10 @@ gem 'friendly_id', '~> 5.1.0'
 # Use Bourbon & Neat for SASS
 gem 'bourbon'
 gem 'neat'
+
+# Use Phusion Passenger for fun times
+gem 'passenger'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
