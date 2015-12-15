@@ -1,29 +1,5 @@
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:search, "Search for:") %>
-  <%= text_field_tag(:search, @search) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<%= render 'partials/search_box', search: @search %>
 
-<% @articles.each do |article| %>
-  <article>
-    <h1><%= link_to article.title, article_path(article) %></h1>
-    <h2><%= article.created_at.strftime("%A — %B #{article.created_at.day.ordinalize}, %Y") %></h2>
+<%= render 'partials/results', articles: @articles %>
 
-    <section class='article-text-container'>
-      <%= truncate(strip_tags(article.text).first(100), length: 140)%>		
-    </section>
-
-    <% if article != @articles.last %>
-      <hr>
-    <% else %>
-      <br>
-      <br>
-      <br>
-      <br>
-    <% end %>
-  </article>
-<% end %>
-
-<script>
-  $('nav ul li#archives').addClass('active')
-</script>
+<%= render 'partials/selected_nav', selected: 'archives' %>

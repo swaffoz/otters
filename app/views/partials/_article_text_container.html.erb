@@ -1,0 +1,11 @@
+<h1>
+  <%= link_to article.title, article_path(article) %>
+</h1>
+
+<h2>
+  <%= article.created_at.strftime("%A — %B #{article.created_at.day.ordinalize}, %Y") %>
+</h2>
+
+<section class='article-text-container'>
+  <%= raw article.text %>		
+</section>
