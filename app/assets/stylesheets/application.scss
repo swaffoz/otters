@@ -14,12 +14,13 @@
  */
  
 @import "bourbon";
-@import "grid-settings";
 @import "neat";
 
-@import "fonts";
-@import "layout";
+@import "settings/font_settings";
+@import "settings/color_settings";
+
 @import "sticky_footer";
+@import "layout";
 
 @import "articles";
 @import "colophon";
