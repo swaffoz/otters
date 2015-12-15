@@ -52,9 +52,6 @@ gem 'neat'
 # Use Phusion Passenger for fun times
 gem 'passenger'
 
-# Remove the following if your app does not use Rails
-gem 'capistrano-rails'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console
@@ -64,6 +61,7 @@ group :development, :test do
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-passenger', '>= 0.1.1'
   gem 'capistrano-bundler'
+  gem 'capistrano-rails'
 end
 
 group :development do
