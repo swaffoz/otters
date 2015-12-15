@@ -6,19 +6,14 @@ class ArticlesController < ApplicationController
 
   def archives
     page_size = 50
-    @page_number = params[:page].nil? ? 0 : params[:page].to_i
-    @number_of_pages = (1.0 * Article.all.count / page_size).ceil
 
-    lower_bound = page_size * @page_number.to_i
-    upper_bound = page_size * (@page_number.to_i + 1)
+    @articles = Article.all.order('created_at DESC, updated_at DESC')
+    @number_of_pages = (1.0 * @articles.count / page_size).ceil.abs
+    @page_number = archive_page_number
 
-    if @page_number < @number_of_pages
-      range = lower_bound...upper_bound
-      @articles = Article.all.order('created_at DESC, updated_at DESC')[range]
-    else
-      @page_number = 1
-      @articles = Article.all.order('created_at DESC, updated_at DESC')
-    end
+    start = page_size * @page_number
+
+    @articles.to_a.slice!(start, page_size) if @page_number < @number_of_pages
   end
 
   def colophon
@@ -41,5 +36,9 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :text)
+  end
+
+  def archive_page_number
+    params[:page].nil? ? 0 : params[:page].to_i
   end
 end
