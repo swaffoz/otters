@@ -21,3 +21,6 @@
 
 # Ignore my secrets!
 /config/secrets.yml
+
+# Ignore .keep files
+*.keep
