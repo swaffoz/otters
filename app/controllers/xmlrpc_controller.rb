@@ -15,7 +15,7 @@ class XmlrpcController < ApplicationController
     hash = { title: article.title,
             description: article.text,
             link: Rails.application.secrets.app_url + '/'  + article.id.to_s,
-            date_created: article.created_at.utc.iso8601,
+            dateCreated: article.created_at.utc.iso8601,
             date_modified: article.updated_at.utc.iso8601,
             categories: '' }
     hash
@@ -40,7 +40,7 @@ class XmlrpcController < ApplicationController
         title: article.title,
         description: article.text,
         link: Rails.application.secrets.app_url + '/' + article.id.to_s,
-        date_created: article.created_at.utc.iso8601,
+        dateCreated: article.created_at.utc.iso8601,
         date_modified: article.updated_at.utc.iso8601,
         categories: '' }
       arr.push hash
