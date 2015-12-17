@@ -7,4 +7,15 @@ namespace :deploy do
       exit
     end
   end
+  
+  desc 'Seed the database.'
+  task :refresh_sitemap do
+    on roles(:app) do
+      within "#{current_path}" do
+        with rails_env: :production do
+          execute :rake, 'sitemap:refresh'
+        end
+      end
+    end
+  end
 end
