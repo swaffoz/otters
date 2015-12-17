@@ -1,6 +1,8 @@
-<article class='active'>
-  <%= render 'partials/article_text_container', article: @article %>
-  <br>
-  <br>
-  <br>
-</article>
+<% cache(cache_key_for_articles) do %>
+  <article class='active'>
+    <%= render 'partials/article_text_container', article: @article %>
+    <br>
+    <br>
+    <br>
+  </article>
+<% end %>

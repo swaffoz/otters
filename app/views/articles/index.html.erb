@@ -1,17 +1,18 @@
-<% @articles.each do |article| %>
-	<article>
-		<%= render 'partials/article_text_container', article: article %>
-				
-		<% if article != @articles.last %>
-			<hr>
-		<% else %>
-			<br>
-			<br>
-			<br>
-			<br>
-		<% end %>
-	</article>
+<% cache(cache_key_for_articles) do %>
+	<% @articles.each do |article| %>
+		<article>
+			<%= render 'partials/article_text_container', article: article %>
+					
+			<% if article != @articles.last %>
+				<hr>
+			<% else %>
+				<br>
+				<br>
+				<br>
+				<br>
+			<% end %>
+		</article>
+	<% end %>
 <% end %>
-
 
 <%= render 'partials/selected_nav', selected: 'current' %>

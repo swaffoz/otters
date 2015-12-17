@@ -1,6 +1,8 @@
 <%= render 'partials/search_box', search: '' %>
 
-<%= render 'partials/results', articles: @articles %>
+<% cache(cache_key_for_articles) do %>
+  <%= render 'partials/results', articles: @articles %>
+<% end %>
 
 <article class="center-align">
   <% if @page_number > 1 %>
