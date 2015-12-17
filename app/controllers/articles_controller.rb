@@ -1,7 +1,7 @@
 ## This controller only handles showing articles and the feed.
 class ArticlesController < ApplicationController
   def index
-    Article.all.order('created_at DESC, updated_at DESC').first(3)
+    @articles = Article.all.order('created_at DESC, updated_at DESC').first(3)
   end
 
   def archives
@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    Article.friendly.find(params[:id])
+    @article = Article.friendly.find(params[:id])
   end
 
   def feed
