@@ -84,7 +84,7 @@ class XmlrpcController < ApplicationController
     return unless image.save
 
     { file: image.attached_file_file_name,
-      url: image.attached_file.url,
+      url: Rails.application.secrets.app_url + '/' + image.attached_file.url,
       type: image.attached_file_content_type }
   end
   
