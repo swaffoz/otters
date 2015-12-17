@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
     @page_number = archive_page_number(@number_of_pages)
 
     @articles = Article.all.order('created_at DESC, updated_at DESC')
-    @articles = @articles.to_a.slice(page_size * @page_number, page_size)
+    @articles = @articles.to_a.slice(page_size * (@page_number - 1), page_size)
   end
 
   def colophon
@@ -40,8 +40,8 @@ class ArticlesController < ApplicationController
   end
 
   def archive_page_number(number_of_pages)
-    page_number = params[:page].nil? ? 0 : params[:page].to_i.abs
-    page_number = page_number >= 0 ? page_number : 1
+    page_number = params[:page].nil? ? 1 : params[:page].to_i.abs
+    page_number = page_number > 0 ? page_number : 1
     [number_of_pages, page_number].min
   end
 
