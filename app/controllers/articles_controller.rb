@@ -1,9 +1,7 @@
 ## This controller only handles showing articles and the feed.
 class ArticlesController < ApplicationController
   def index
-    @articles = Rails.cache.fetch("#{cache_key}/current") do
-      Article.all.order('created_at DESC, updated_at DESC').first(3)
-    end
+    Article.all.order('created_at DESC, updated_at DESC').first(3)
   end
 
   def archives
@@ -13,29 +11,19 @@ class ArticlesController < ApplicationController
 
     @page_number = archive_page_number(@number_of_pages)
 
-    @articles = Rails.cache.fetch("#{cache_key}/archives") do
-      Article.all.order('created_at DESC').to_a.slice(page_size * @page_number,
-                                                      page_size)
-    end
-
-    if @articles.nil?
-      @articles = Article.all.order('created_at DESC').to_a \
-                          .slice(page_size * @page_number, page_size)
-      Rails.cache.write("#{cache_key}/archives", @articles)
-    end
+    @articles = Article.all.order('created_at DESC, updated_at DESC')
+    @articles = @articles.to_a.slice(page_size * @page_number, page_size)
   end
 
   def colophon
   end
 
   def show
-    @article = Rails.cache.fetch("#{cache_key}/#{params[:id]}") do
-      Article.friendly.find(params[:id])
-    end
+    Article.friendly.find(params[:id])
   end
 
   def feed
-    @articles = Rails.cache.fetch("#{cache_key}/feed") do
+    @articles = Rails.cache.fetch("#{feed_cache_key}") do
       Article.all.order('created_at DESC, updated_at DESC')
     end
 
@@ -57,9 +45,9 @@ class ArticlesController < ApplicationController
     [number_of_pages, page_number].min
   end
 
-  def cache_key
+  def feed_cache_key
     count = Article.count
     max_updated_at = Article.maximum(:updated_at).try(:utc).try(:to_s, :number)
-    "articles/all-#{count}-#{max_updated_at}"
+    "articles/all-#{count}-#{max_updated_at}/feed"
   end
 end
