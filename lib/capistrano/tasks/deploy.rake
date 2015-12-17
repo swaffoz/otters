@@ -7,7 +7,7 @@ namespace :deploy do
       exit
     end
   end
-  
+
   desc 'Refresh the sitemap of the site'
   task :refresh_sitemap do
     on roles(:app) do
