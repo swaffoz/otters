@@ -1,5 +1,3 @@
-== README
-
 # Otters.io
 *An adorable little blogging system*
 
