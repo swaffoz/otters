@@ -1,4 +1,4 @@
-<% cache(cache_key_for_articles) do %>
+<% cache(@article) do %>
   <article class='active'>
     <%= render 'partials/article_text_container', article: @article %>
     <br>
