@@ -8,7 +8,7 @@ namespace :deploy do
     end
   end
   
-  desc 'Seed the database.'
+  desc 'Refresh the sitemap of the site'
   task :refresh_sitemap do
     on roles(:app) do
       within "#{current_path}" do
