@@ -1,9 +1,10 @@
 $logo-height: 60px
 
-$iPhone6Plus: new-breakpoint(min-device-width 414px max-device-width 736px,  12)
-$iPhone6: new-breakpoint(min-device-width 375px max-device-width 667px,  12)
-$iPhone5: new-breakpoint(min-device-width 320px max-device-width 568px,  12)
-$iPhone4: new-breakpoint(min-device-width 320px max-device-width 480px,  12)
+$screen: "only screen" !default
+$iPhone6Plus: $screen and new-breakpoint(min-device-width 414px max-device-width 736px,  12)
+$iPhone6: $screen and new-breakpoint(min-device-width 375px max-device-width 667px,  12)
+$iPhone5: $screen and new-breakpoint(min-device-width 320px max-device-width 568px,  12)
+$iPhone4: $screen and new-breakpoint(min-device-width 320px max-device-width 480px,  12)
 
 $mobile: $iPhone6Plus or $iPhone6 or $iPhone5 or $iPhone4
 
