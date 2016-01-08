@@ -1,13 +1,5 @@
 $logo-height: 60px
 
-$screen: "only screen" !default
-$iPhone6Plus: $screen and new-breakpoint(min-device-width 414px max-device-width 736px,  12)
-$iPhone6: $screen and new-breakpoint(min-device-width 375px max-device-width 667px,  12)
-$iPhone5: $screen and new-breakpoint(min-device-width 320px max-device-width 568px,  12)
-$iPhone4: $screen and new-breakpoint(min-device-width 320px max-device-width 480px,  12)
-
-$mobile: $iPhone6Plus or $iPhone6 or $iPhone5 or $iPhone4
-
 body
   font-family: $primary-font-family
   color: $text-color
@@ -38,8 +30,6 @@ header
       margin-right: -4px
       position: relative
       top: 10px
-      @include media($mobile)
-        width: 120px
       
     #title_container
       display: inline-block
@@ -51,15 +41,11 @@ header
         text-align: center
         display: inline-block
         line-height: 90%
-        @include media($mobile)
-          font-size:  modular-scale(6)
     
       small
         font-style: italic
         font-size: modular-scale(-1)
         display: block
-        @include media($mobile)
-          font-size:  modular-scale(0)
 
 nav
   margin: 20px 0 80px 0
@@ -69,9 +55,6 @@ nav
     @include shift(1)
     text-align: center
     margin-bottom: 40px
-    @include media($mobile)
-      @include span-columns(12 of 12)
-      @include shift(0)
       
     li
       display: inline
@@ -79,8 +62,6 @@ nav
       font-weight: 400
       margin-right: 20px
       padding: 6px
-      @include media($mobile)
-        font-size: modular-scale(1)
 
       a, a:visited 
         color: #414141
@@ -100,8 +81,6 @@ footer
   font-size: modular-scale(0)
   padding: 30px
   text-align: center
-  @include media($mobile)
-    font-size: modular-scale(1)
   
   div
     margin-bottom: 20px
@@ -115,5 +94,3 @@ footer
     font-size: modular-scale(-1)
     font-style: italic
     margin-bottom: 20px
-    @include media($mobile)
-      font-size: modular-scale(0)
