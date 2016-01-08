@@ -39,7 +39,7 @@ header
       position: relative
       top: 10px
       @include media($mobile)
-        width: 136px
+        width: 120px
       
     #title_container
       display: inline-block
@@ -52,7 +52,7 @@ header
         display: inline-block
         line-height: 90%
         @include media($mobile)
-          font-size:  modular-scale(7)
+          font-size:  modular-scale(6)
     
       small
         font-style: italic
@@ -69,7 +69,10 @@ nav
     @include shift(1)
     text-align: center
     margin-bottom: 40px
-    
+    @include media($mobile)
+      @include span-columns(12 of 12)
+      @include shift(0)
+      
     li
       display: inline
       font-size: modular-scale(0)
