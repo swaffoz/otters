@@ -1,3 +1,4 @@
 <script>
-  $("nav ul li#<%= selected %>").addClass('active')
+  var d = document.getElementById("<%= selected %>");
+  d.className += " active";
 </script>
