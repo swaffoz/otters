@@ -1,10 +1,10 @@
 $logo-height: 60px
 
 body
-  font-family: $primary-font-family
+  font-family: $header-font-family
   color: $text-color
   background: #fff
-  font-weight: $font-weight
+  font-weight: $body-font-weight
 
 a
   color: darken($text-color, 10%)
@@ -41,19 +41,19 @@ header
         text-align: center
         display: inline-block
         line-height: 90%
-        font-weight: $font-weight
+        font-weight: $header-font-weight
     
       small
         font-style: italic
         font-size: modular-scale(-1)
         display: block
-        font-weight: $font-weight
+        font-weight: $body-font-weight
 
 nav
   margin: 20px 0 80px 0
   
   ul
-    @include span-columns(10 of 12)
+    @include span-columns(8 of 12)
     @include shift(1)
     text-align: center
     margin-bottom: 40px
@@ -67,7 +67,7 @@ nav
       a, a:visited 
         color: #414141
         border-bottom: solid 3px $primary-accessory-color
-        font-weight: $font-weight
+        font-weight: $header-font-weight
 
     li.active
       color: #414141
@@ -88,7 +88,7 @@ footer
     margin-bottom: 20px
     
   a
-    font-weight: bold
+    font-weight: $header-font-weight
     border-bottom: none
     margin: 0 4px
     
@@ -96,4 +96,4 @@ footer
     font-size: modular-scale(-1)
     font-style: italic
     margin-bottom: 20px
-    font-weight: $font-weight
+    font-weight: $body-font-weight

@@ -1,6 +1,6 @@
 article
-  @include span-columns(10 of 12)
-  @include shift(1)
+  @include span-columns(8 of 12)
+  @include shift(2)
   margin-top: 20px
   margin-bottom: 80px
   
@@ -9,25 +9,25 @@ article
     a 
       border-bottom: none
       color: $text-color
-      font-weight: $font-weight !important
+      font-weight: $header-font-weight !important
   
   h2
     font-size: modular-scale(0)
     font-style: italic
-    font-weight: $font-weight
+    font-weight: $body-font-weight
     margin: 2px 0 12px 0
     opacity: 0.4
     
   section.article-text-container
     font-size: modular-scale(0)
-    font-family: $secondary-font-family
+    font-family: $body-font-family
     line-height: 145%
     position: relative
     left: 0.75em
 
     p
       margin-bottom: modular-scale(0)
-      font-weight: $font-weight
+      font-weight: $body-font-weight
     
     img
       margin: 1em 2em 1em 0
