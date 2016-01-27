@@ -3,8 +3,11 @@ $logo-height: 60px
 body
   font-family: $header-font-family
   color: $text-color
-  background: #fff
+  background: #444
   font-weight: $body-font-weight
+
+#background_container
+  background: #fff
 
 a
   color: darken($text-color, 10%)
@@ -20,17 +23,17 @@ a
 header
   text-align: center
   padding: 10px 0
+  border-top: 9px solid #444
   
   #logo_container
     @include outer-container(800px)
     
     img
       display: inline-block
-      width: 77px
-      padding: 10px 10px 10px 0
+      width: 78px
       margin-right: -4px
       position: relative
-      top: 30px
+      top: 9px
       
     #title_container
       display: inline-block
@@ -53,16 +56,15 @@ nav
   margin: 20px 0 80px 0
   
   ul
-    @include span-columns(8 of 12)
-    @include shift(2)
+    @include span-columns(10 of 12)
+    @include shift(1)
     text-align: center
     margin-bottom: 40px
       
     li
       display: inline
       font-size: modular-scale(0)
-      margin-right: 20px
-      padding: 6px
+      padding: 16px
 
       a, a:visited 
         color: #414141
@@ -83,12 +85,14 @@ footer
   font-size: modular-scale(0)
   padding: 30px
   text-align: center
+  border-bottom: 9px solid #444
   
   div
     margin-bottom: 20px
     
   a
     font-weight: $header-font-weight
+    color: $text-color
     border-bottom: none
     margin: 0 4px
     

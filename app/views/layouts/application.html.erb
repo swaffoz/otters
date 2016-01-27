@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <meta name="description" content="An adorable little blog. One of those internet things about computers. Written by Zane Swafford.">
-  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Otters</title>
   <link rel="alternate" type="application/rss+xml" title="RSS" href="http://otters.io/feed.rss">
   <%= render 'partials/favicon' %>
@@ -12,10 +12,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="background_container">
   <header>
     <div id='logo_container'>
       <div id='title_container'>
-        <%= image_tag 'logo.png' %>
+        <%= image_tag 'logo2.png' %>
         <h1>otters.io</h1>
         <small>An adorable little blog</small>
       </div>
@@ -43,5 +44,6 @@
     <small>© Otters <%= Time.now.year %></small>
   </footer>
   <%= render 'partials/analytics' %>
+</div>
 </body>
 </html>
