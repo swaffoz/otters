@@ -23,8 +23,16 @@ class XmlrpcController < ApplicationController
   
   def newPost(_blogid, username, password, content, _publish)
     return unless User.find_by(name: username).try(:authenticate, password)
+
+	cover_image_url = nil
+	html = Nokogiri::HTML.fragment(content['description'])
+    unless html.nil? or html.css('img').nil?
+    	cover_image_url = html.css('img').first().attribute('src').value
+    end
+
     article = Article.new(title: content['title'],
-                          text: content['description'])
+                          text: content['description'],
+                          cover_image_url: cover_image_url)
 
     return unless article.save
     article.id
@@ -51,9 +59,17 @@ class XmlrpcController < ApplicationController
   
   def editPost(postid, username, password, content, _publish)
     return unless User.find_by(name: username).try(:authenticate, password)
+    
+    cover_image_url = nil
+	html = Nokogiri::HTML.fragment(content['description'])
+    unless html.nil? or html.css('img').nil?
+    	cover_image_url = html.css('img').first().attribute('src').value
+    end
+    
     Article.update(postid.to_i,
                     title: content['title'],
-                    text: content['description'])
+                    text: content['description'],
+                    cover_image_url: cover_image_url)
     true
   end
     

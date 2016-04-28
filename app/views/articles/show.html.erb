@@ -1,4 +1,7 @@
 <% cache(@article) do %>
+  <% content_for :head do %>
+	<%= render 'partials/open_graph_meta_tags', article: @article %>
+  <% end %>
   <article class='active'>
     <%= render 'partials/article_text_container', article: @article %>
     <br>
