@@ -1,0 +1,6 @@
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://otters.io/<%= article.slug %>" />
+<meta property="og:title" content="<%= article.title %>" /> 
+<% unless article.cover_image_url.nil? %>
+  <meta property="og:image" content="https://otters.io<%= article.cover_image_url %>">
+<% end %>

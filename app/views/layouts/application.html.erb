@@ -9,8 +9,8 @@
   <%= render 'partials/favicon' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= content_for?(:head) ? yield(:head) : nil %>
   <%= csrf_meta_tags %>
-  <%= yield :head %>
 </head>
 <body>
   <div id="background_container">
