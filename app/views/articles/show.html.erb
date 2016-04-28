@@ -1,6 +1,11 @@
 <% cache(@article) do %>
   <% content_for :head do %>
-	<%= render 'partials/open_graph_meta_tags', article: @article %>
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://otters.io/<%= @article.slug %>" />
+    <meta property="og:title" content="<%= @article.title %>" /> 
+    <% unless @article.cover_image_url.nil? %>
+      <meta property="og:image" content="https://otters.io<%= @article.cover_image_url %>">
+    <% end %>
   <% end %>
   <article class='active'>
     <%= render 'partials/article_text_container', article: @article %>
