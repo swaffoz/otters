@@ -26,7 +26,7 @@ class XmlrpcController < ApplicationController
 
 	cover_image_url = nil
 	html = Nokogiri::HTML.fragment(content['description'])
-    unless html.nil? or html.css('img').nil?
+    unless html.nil? or html.css('img').nil? or html.css('img').first().nil?
     	cover_image_url = html.css('img').first().attribute('src').value
     end
 
@@ -62,7 +62,7 @@ class XmlrpcController < ApplicationController
     
     cover_image_url = nil
 	html = Nokogiri::HTML.fragment(content['description'])
-    unless html.nil? or html.css('img').nil?
+    unless html.nil? or html.css('img').nil? or html.css('img').first().nil?
     	cover_image_url = html.css('img').first().attribute('src').value
     end
     
