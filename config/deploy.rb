@@ -24,7 +24,7 @@ set :deploy_to, '/usr/local/www/otters'
 
 set :rbenv_type, :system # or :user, depends on your rbenv setup
 set :rbenv_ruby, '2.2.3'
-set :rbenv_path, '/usr/local/bin/rbenv'
+set :rbenv_path, '/root/.rbenv'
 
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('config/database.yml',
