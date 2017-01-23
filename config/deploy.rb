@@ -22,7 +22,7 @@ set :deploy_to, '/usr/local/www/otters'
 # Default value for :pty is false
 # set :pty, true
 
-set :rbenv_type, :system # or :user, depends on your rbenv setup
+set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, '2.2.3'
 set :rbenv_path, '/root/.rbenv'
 
